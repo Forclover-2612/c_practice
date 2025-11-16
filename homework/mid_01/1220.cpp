@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<math.h>
 #define max 1000
 //储存学生数据
 struct Data
@@ -43,12 +44,13 @@ double calculate(int x)
 //保留以为小数的函数
 double round_1(double x)
 {
-    x = x * 100;
-    int n = (int)x % 10;
-    if (n >= 5)
-        return ((int)x / 10) / 10.0 + 0.1;
-    else
-        return ((int)x / 10) / 10.0;
+    // x = x * 100;
+    // int n = (int)x % 10;
+    // if (n >= 5)
+    //     return ((int)x / 10) / 10.0 + 0.1;
+    // else
+    //     return ((int)x / 10) / 10.0;
+    return (int)(x*10+0.5)/10.0;
 }
 int main()
 {
@@ -107,7 +109,8 @@ int main()
             sort[i] = temp;
         }
         sort[i].rank = i + 1;
-        if (sort[i].num == sort[i - 1].num&&i>=1)
+        // if (sort[i].num == sort[i - 1].num&&i>=1)//不能比较？？？
+        if(fabs(sort[i].num-sort[i-1].num)<1e-6&&i>=1)
         {
             sort[i].rank = sort[i-1].rank;
         }
@@ -123,5 +126,6 @@ int main()
         }
         printf("%lld %.1lf %d\n", arr[i].no, arr[i].num, sort[j].rank);
     }
+    // printf("%.1lf",round_1(3.699));
     return 0;
 }

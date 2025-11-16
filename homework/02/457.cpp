@@ -76,7 +76,8 @@ int main()
             }
             printf("\n");
         }
-        printf("\n");
+        // printf("\n");
+        break;
     }
 
     return 0;

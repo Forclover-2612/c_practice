@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+//最大公约数
 int main()
 {
     int x,y,n;

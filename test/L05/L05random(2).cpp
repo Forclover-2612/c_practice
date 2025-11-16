@@ -8,12 +8,12 @@ int main()
 {
     int n,m,x,i,j,cla;
     int sno[MAX_C][MAX_S],count[MAX_C]={0};
-     int used[MAX_S]={0};
-    scanf("%d %d %d",&n,&m,&x);
+    int used[MAX_S]={0};
+    scanf("%d %d %d",&n,&m,&x);//总数，抽取人数，班级
     for(i=0;i<n;i++)
     {
         scanf("%d",&cla);
-        scanf("%d",&sno[cla][count[cla]]);//记录到班级对应的数组
+        scanf("%d",&sno[cla][count[cla]]);//记录到班级对应的数组，从0,1,2……开始记
         count[cla]++;//对每个班级学生进行计数（记录输入数据的个数）
     }
     srand(time(NULL));
@@ -21,7 +21,7 @@ int main()
     {
         j=rand()%count[x];
         // printf("the lucky guy %d:%d\n",i,sno[x][j]); 
-        if(used[i])//标记：不重复
+        if(used[j])//标记：不重复
         {
             m+=1;
             continue;
