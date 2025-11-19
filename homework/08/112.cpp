@@ -4,6 +4,7 @@
 using namespace std;
 // int flag=0;
 //输入输出的细节
+//先定义mid变量
 int bisearch(int ary[], int left, int right, int num)
 {
     // if(!flag)
