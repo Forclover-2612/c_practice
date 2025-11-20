@@ -5,6 +5,7 @@ void move(int n,char a,char b,char c)//两侧是起始和目标组织，中间�
     if(n==1)
     {
         printf("%d:%c to %c\n",n,a,c);
+        step++;
         return;
     }
     else
@@ -12,8 +13,9 @@ void move(int n,char a,char b,char c)//两侧是起始和目标组织，中间�
         //先把前n-1个盘子移到b柱（辅助柱）
         move(n-1,a,c,b);
         //再把第n个盘子放到c
-        // printf("%d:%c to %c\n",n,a,c);
-        move(1,a,b,c);
+        printf("%d:%c to %c\n",n,a,c);
+        step++;
+        // move(1,a,b,c);
         //最后把前n-1个盘子移动到c
         move(n-1,b,a,c);
         return;
@@ -33,6 +35,7 @@ int main()
     char b='b';
     char c='c';
     move(3,a,b,c);
+    printf("%d\n",step);
     printf("%d",move_count(3));
     return 0;
 }
