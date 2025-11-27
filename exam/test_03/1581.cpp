@@ -99,6 +99,7 @@ void judge(char arr[][8][3], int n)
             }
             // 找顺子
             k = 0;
+            int shunzi=0;
             while (k <= last_count - 3)
             {
                 if ((last[k] / 10 == last[k + 1] / 10) && (last[k + 1] / 10 == last[k + 2] / 10) && (last[k + 1] == last[k] + 1) && (last[k + 2] == last[k] + 2))
@@ -114,18 +115,18 @@ void judge(char arr[][8][3], int n)
             if (mianzi == 2)
             {
                 printf("YES\n");
-                for (t = 0; t < mianzi; t++)
+            }
+            for (t = 0; t < mianzi; t++)
                 {
                     if (kezi_j[t] != -1)
                     {
                         used[kezi_j[t]].count=kezi_orig[t];
                     }
                 }
-                used[i].count=orig_i_count;
-            }
+            used[i].count=orig_i_count;
         }
     }
-        printf("NO\n");
+    printf("NO\n");
     return;
 }
 int main()
