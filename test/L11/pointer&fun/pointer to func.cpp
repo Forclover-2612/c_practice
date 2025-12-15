@@ -27,6 +27,8 @@ int main()
     // printf("%d\n",res);
     scanf("%d",&n);
     int c=(a[n])(3,5);
+    int d=(*(a+n))(3,5);//两种访问方式
     printf("%d\n",c);
+    printf("%d\n",d);
     return 0;
 }
