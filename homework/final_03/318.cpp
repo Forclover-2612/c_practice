@@ -60,6 +60,30 @@ void change3(char photo[][55], int n)
         }
     }
 }
+char ans[4][55][55];
+//统一四个变化
+void generate_all(int n,char arr[][55])
+{
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            //水平翻转
+            ans[0][i][j]=arr[i][n-1-j];
+            //垂直翻转
+            ans[1][i][j]=arr[n-1-j][i];
+            //次对角线翻转
+            ans[2][i][j]=arr[n-1-j][n-1-i];
+            //主对角线翻转
+            ans[3][i][j]=arr[i][j];
+        }
+        for(int j=0;j<n;j++)
+        {
+            ans[j][i][n]='\0';
+        }
+    }
+    
+}
 int judge(char (*arr1)[55], char (*arr2)[55], int n)
 {
     for (int i = 0; i < n; i++)
@@ -79,6 +103,8 @@ void print(char (*arr)[55], int n)
         for (int j = 0; j < n; j++)
         {
             printf("%c", arr[i][j]);
+            //或：字符串输出
+            //printf("%s\n",ans[id][i]);
         }
         printf("\n");
     }
@@ -166,5 +192,21 @@ int main()
         if (sign[3] == 0)
             print(left_diag, n);
     }
+    // for (int i = 0; i < limit; i++) {
+    //     int duplicate = 0;
+    //     // 与前面已经确认为有效的矩阵进行比较
+    //     for (int j = 0; j < i; j++) {
+    //         // 如果前面的矩阵 j 有效，且当前矩阵 i 与 j 相同，则 i 是重复的
+    //         if (is_valid[j] && is_same(i, j, n)) {
+    //             duplicate = 1;
+    //             break;
+    //         }
+    //     }
+    //     // 如果不重复，标记为有效并计数
+    //     if (!duplicate) {
+    //         is_valid[i] = 1;
+    //         count++;
+    //     }
+    // }
     return 0;
 }

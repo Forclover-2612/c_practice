@@ -4,8 +4,10 @@ int main()
 {
     int a=20;
     int b=10;
-    int *pa[2]={&a,&b}; 
+    int *pa[2]={&a,&b};
+    int arr[2][3]={0}; 
     int **p2=pa;//p2是一个二级指针，指向一个一级指针数组pa
+    // int **p=arr;//报错
     //p2的值指向pa数组的首地址，即pa[0]的地址
     //*p2的值是pa[0]的值，即&a
     printf("%p %p %p %p %d %d\n",p2,*p2,*p2+1,*(p2+1),**p2,**(p2+1));

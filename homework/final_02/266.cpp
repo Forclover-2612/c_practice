@@ -67,6 +67,10 @@ int main()
             rev+=360;
         }
     }
+    //可以直接取模
+    // int k=(rev/90)%4;
+    // if(k<0)
+    // k+=4;
     int num = rev / 90;
     if (num % 4 == 1)
     {

@@ -39,17 +39,24 @@ int main()
     for(int i=1;i<=n;i++)
     {
         //一定要把小容量的先算出来
-        int current_weight=goods[i][0];
-        int current_value=goods[i][1];
-        for(int j=0;j<=w;j++)
+        int current_weight=goods[i][0];//当前物品i的重量
+        int current_value=goods[i][1];//当前物品i的价值
+        for(int j=0;j<=w;j++)//遍历背包容量从0到w
         {
+            //1.背包容量j装不下当前物品i
+            // 既然装不下，最大价值就等于“不拿这个物品，只看前 i-1 个物品”时的价值
             if(j<current_weight)
             {
                 dp[i][j]=dp[i-1][j];
             }
+            //2.背包容量j能装下当前物品
             else{
+                // 选项 A：不拿物品 i。价值等于前 i-1 个物品在容量 j 下的价值。
                 int not_take=dp[i-1][j];
+                // 选项 B：拿物品 i。
+                // 价值 = 当前物品价值 + (剩余容量 j - current_weight 下，前 i-1 个物品的最大价值)
                 int take=current_value+dp[i-1][j-current_weight];
+                // 状态转移方程：取两者中的较大值
                 dp[i][j]=std::max(not_take,take);
             }
         }

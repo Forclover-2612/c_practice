@@ -3,18 +3,19 @@
 #include<cstring>
 using namespace std;
 char input[10000][50];
-char t[10000][50];
-int isfind(char input[],char c[]){
-    if(strlen(input)<strlen(c)){
-        return 1;
+// char t[10000][50];
+int isfind(char str[],char c[]){
+    int len1=strlen(str);
+    int len2=strlen(c);
+    if(len1<len2){
+        return 0;
     }
-    int a=strlen(c);
-    for(int i=0;i<a;i++){
-        if(input[i]!=c[i]){
-            return 1;
+    for(int i=0;i<len2;i++){
+        if(str[i]!=c[i]){
+            return 0;
         }
     }
-    return 0;
+    return 1;
 
 }
 int main(){
@@ -32,8 +33,8 @@ int main(){
 
     for(int i=0;i<N;i++){
         if(isfind(input[i],c)==0){            
-            strcpy(t[y],input[i]);
-            p[y]=t[y];
+            // strcpy(t[y],input[i]);
+            p[y]=input[y];//直接指过去
             y++;
         }
     }

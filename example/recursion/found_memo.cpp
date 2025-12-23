@@ -30,7 +30,8 @@ int found_memo(int x,int y)
             int sub=found_memo(new_x,new_y);
             if(sub!=-1e9)
             {
-                if(current_max>sub)
+                //求最大路径
+                if(current_max<sub)
                 current_max=sub;
             }
         }

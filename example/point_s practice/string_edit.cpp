@@ -7,7 +7,7 @@ char parseCmd(char *s, char *str1, char *str2)
 {
     // 先剥离出第一个字母
     char *start = s;
-    //    s+=2;//注意是加1还是加
+    //    s+=2;//注意是加1还是加2
     s += 1;
     if (*s == ' ')
         s++;
@@ -55,7 +55,7 @@ void deleteStr(char *s, char *str1)
     int lenS=strlen(s);
 
     //1.计算新长度
-    int newLen=lenS-lenStr1+1;
+    int newLen=lenS-lenStr1+1;//+1的作用？填入'\0'吗
     //2.申请内存
     // char *temp=(char *)malloc(newLen*sizeof(char));
     // if(temp==NULL)return;
@@ -64,7 +64,7 @@ void deleteStr(char *s, char *str1)
     strncpy(temp,s,preLen);
     temp[preLen]='\0';//一定要封口，不用再+1了
     //4.拼接后半部分
-    strcat(temp,pos+lenStr1);
+    strcat(temp,pos+lenStr1);//会封口
     //5.将原结果拷回原字符串
     strcpy(s,temp);
     //释放临时内存
