@@ -12,6 +12,7 @@ This repository contains my C++ learning and algorithm practice.
 - Solid foundation
 - Basic DP
 - containers learning
-- 
+- thinking...
+
 ## Goal
 Build a solid foundation in C++ and algorithm design.
