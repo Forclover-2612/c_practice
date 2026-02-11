@@ -1,0 +1,11 @@
+# 编译生成文件
+*.exe
+*.obj
+*.pdb
+*.ilk
+
+# 编译输出目录
+bin/
+
+# VSCode配置
+.vscode/
